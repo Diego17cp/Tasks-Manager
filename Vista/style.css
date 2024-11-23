@@ -1,0 +1,445 @@
+:root{
+    --color-primario: #001233;
+    --azul: #023E7D;
+    --bordes:#0e469fad;
+    --color-secundario: white;
+    --textos-titulo:#0466C8;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid green; */
+    font-family: 'Poppins', sans-serif;
+}
+html, body{
+    height: 100vh;
+    background-color: var(--color-primario);
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--azul);
+    color: var(--color-secundario);
+    padding: 10px 20px;
+    height: 100px;
+}
+.logo{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-secundario);
+}
+.botonesNav{
+    display: flex;
+    gap: 10px;
+    margin-left: 70px;
+    width: 15%;
+    height: 70px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.btnNav{
+    text-decoration: none;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: 7px;
+    transition: all 0.5s ease-in-out;
+}
+.btnLogout{
+    border: 3px solid rgb(171, 72, 72);
+    color: white;
+}
+.btnLogout:hover{
+    background-color: rgb(171, 72, 72);
+    color: white;
+}
+.btnLogin{
+    border: 3px solid var(--color-primario);
+    color: white;
+}
+.btnLogin:hover{
+    background-color: var(--color-primario);
+    color: white;
+}
+.main{
+    display: flex;
+    height: 100%;
+}
+.container{
+    display: grid;
+    /* grid-template-columns: repeat(2, 2fr); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* min-height: 100vh; */
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    /* background-color: #333; */
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+.info h2{
+    font-size: 3rem;
+    text-align: center;
+}
+.task{
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: 70px;
+    border-radius: 20px;
+    border: 1px solid var(--azul);
+    padding: 5px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    position: relative;
+}
+.task h3{
+    font-size: 2rem;
+    text-align: center;
+    margin:10px auto;
+}
+.task p{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.contenidoExpandido{
+    opacity: 0;
+    transition: all 0.5s ease;
+    padding: 10px 20px;
+    position: relative;
+}
+.task.expanded{
+    height: auto;
+}
+.task.expanded .contenidoExpandido{
+    opacity: 1;
+}
+.forms{
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    gap: 20px;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.forms h1{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-secundario);
+}
+button {
+    cursor: pointer;
+}
+.btnAdd{
+    border: 3px solid #666666;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    opacity: .7;
+}
+.btnAdd:hover{
+    opacity: 2;
+}
+#addForm,#editForm{
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    padding: 20px;
+    pointer-events: none;
+    width: 50%;
+    height: auto;
+    max-height: 500px;
+    background-color: var(--azul);
+    box-shadow: 2px 2px 20px var(--textos-titulo);
+}
+#addForm.show, #editForm.show{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}	
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+#addForm{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+}
+#editForm{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    width: 70%;
+    margin: 0 auto;
+}
+.title{
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
+}
+.btnCerrar{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.eliminar{
+    position: absolute;
+    top: 18px;
+    right: 40px;
+}
+.eliminar button{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #7bbcd5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: .7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.eliminar button:hover{
+    opacity: 1;
+}
+.btnCerrar button{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-secundario);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: .7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.btnCerrar button:hover{
+    opacity: 1;
+}
+#addTaskForm, #updateTaskForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+textarea {
+    width: 100%; 
+    resize: none; 
+    overflow: hidden; 
+    border-radius: 10px;
+    border: 2px solid var(--azul);
+    padding: 5px;
+    font-size: 1.2rem;
+    max-height: 150px;
+}
+#addTaskForm, #updateTaskForm label{
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+}
+#addTaskForm input, #updateTaskForm input{
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--azul);
+    padding: 5px;
+    font-size: 1.2rem;
+}
+#addTaskForm button, #updateTaskForm button{
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid var(--azul);
+    padding: 5px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    transition: all 0.7s ease;
+}
+#addTaskForm button:hover, #updateTaskForm button:hover{
+    background-color: var(--textos-titulo);
+}
+.accion{
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    display: flex;
+    gap: 10px;
+}
+.btn-editar{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-secundario);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: .7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.btn-complete{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: rgb(9, 157, 120);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: .7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.btn-pdf{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: rgb(166, 57, 57);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: .7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.btn-editar:hover, .btn-complete:hover, .btn-pdf:hover{
+    opacity: 1;
+}
+.completed{
+    background-color: var(--textos-titulo);
+    opacity: .3;
+}
+.completed:hover{
+    opacity: 1;
+}
+.registro-form-container, .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    max-width: 500px;
+    padding: 20px;
+    /* background-color: #f7f7f7; */
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-form-container h1, .login-form-container h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-secundario);
+}
+.registro-form, .login-form {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-form label, .login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.registro-form input, .login-form input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.registro-form input[type="submit"], .login-form input[type="submit"] {
+    background-color: var(--azul);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+}
+
+.registro-form input[type="submit"]:hover, .login-form input[type="submit"]:hover {
+    background-color: var(--textos-titulo);
+}
+
+.registro-form input[type="submit"]:active, .login-form input[type="submit"]:active {
+    background-color: var(--textos-titulo);
+}
+
+.registro-message {
+    text-align: center;
+    margin: 20px 10px;
+    color: #333;
+}
+.container-bienvenida{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+.bienvenida{
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--color-secundario);
+}
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+    text-align: center;
+}
+.subtitle br {
+    margin-bottom: 10px;
+}

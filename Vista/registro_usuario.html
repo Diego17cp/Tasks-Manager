@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castareas</title>
+    <link rel="stylesheet" href="../Vista/style.css">
+</head>
+<body>
+    <div class="registro-form-container">
+        <div class="registro-title">
+            <h1>Registrarse</h1>
+        </div>
+        <form action="../Controlador/registro_usuario.php" method="post" class="registro-form">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="username" id="usuario" required>
+            <label for="contrasena">Contraseña</label>
+            <input type="password" name="password" id="contrasena" required minlength="8">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+</body>
+</html>
