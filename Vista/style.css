@@ -24,6 +24,7 @@ html, body{
     color: var(--color-secundario);
     padding: 10px 20px;
     height: 100px;
+    width: 100%;
 }
 .logo{
     font-size: 2.5rem;
@@ -93,10 +94,6 @@ html, body{
     color: #fff;
     backdrop-filter: blur(10px);
 }
-.info h2{
-    font-size: 3rem;
-    text-align: center;
-}
 .task{
     overflow: hidden;
     margin-bottom: 10px;
@@ -144,7 +141,7 @@ html, body{
     height: 100%;
     width: 100%;
 }
-.forms h1{
+.title-welcome, .title-tasks{
     font-size: 3rem;
     text-align: center;
     color: var(--color-secundario);
@@ -183,11 +180,16 @@ button {
     pointer-events: none;
     padding: 20px;
     pointer-events: none;
-    width: 50%;
+    width: 70%;
     height: auto;
     max-height: 500px;
     background-color: var(--azul);
     box-shadow: 2px 2px 20px var(--textos-titulo);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
 }
 #addForm.show, #editForm.show{
     opacity: 1;
@@ -200,24 +202,15 @@ button {
     pointer-events: none;
     display: none;
 }
-#addForm{
-    width: 70%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 20px;
-}
-#editForm{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 20px;
-    width: 70%;
-    margin: 0 auto;
-}
+
 .title{
     font-size: 2rem;
+    text-align: center;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
+}
+.title-bienvenida{
+    font-size: 4rem;
     text-align: center;
     color: var(--color-secundario);
     margin-bottom: 10px;
@@ -227,6 +220,7 @@ button {
     top: 10px;
     right: 10px;
 }
+
 .eliminar{
     position: absolute;
     top: 18px;
@@ -310,38 +304,24 @@ textarea {
     display: flex;
     gap: 10px;
 }
-.btn-editar{
+.btn-complete, .btn-editar, .btn-pdf{
     background-color: transparent;
     border: none;
     font-size: 2rem;
-    color: var(--color-secundario);
     cursor: pointer;
     transition: all 0.5s ease;
     opacity: .7;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
+}
+.btn-editar{
+    color: var(--color-secundario);
 }
 .btn-complete{
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
     color: rgb(9, 157, 120);
-    cursor: pointer;
-    transition: all 0.5s ease;
-    opacity: .7;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
 }
 .btn-pdf{
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
     color: rgb(166, 57, 57);
-    cursor: pointer;
-    transition: all 0.5s ease;
-    opacity: .7;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
 }
 .btn-editar:hover, .btn-complete:hover, .btn-pdf:hover{
     opacity: 1;
@@ -442,4 +422,128 @@ textarea {
 }
 .subtitle br {
     margin-bottom: 10px;
+}
+
+/* Cambios para github */
+
+@media only screen and (max-width: 1280px) {
+    .botonesNav{
+        width: 30%;
+    }
+    .title-welcome, .title-tasks{
+        font-size: 2.7rem;
+    }
+}
+@media only screen and (max-width: 1125px) {
+    .title-welcome, .title-tasks{
+        font-size: 2.3rem;
+    }
+}
+@media only screen and (max-width: 665px) {
+    .botonesNav{
+        width: 50%;
+    }
+    .btnNav{
+        font-size: 1rem;
+    }
+    .title-bienvenida{
+        font-size: 3rem;
+    }
+    .subtitle{
+        font-size: 1rem;
+    }
+    .title-welcome, .title-tasks{
+        font-size: 2rem;
+    }
+    .forms, .info{
+        height: 100vh;
+    }
+}
+@media only screen and (max-width: 510px) {
+    .logo{
+        font-size: 2rem;
+    }
+    .title-welcome, .title-tasks{
+        font-size: 1.4rem;
+    }
+    #addForm, #editForm{
+        width: 95%;
+    }
+    .title{
+        font-size: 1.5rem;
+    }
+    #addTaskForm label, #editTaskForm label{
+        font-size: 1rem;
+    }
+    #addTaskForm input, #updateTaskForm input{
+        height: 30px;
+        font-size: 1rem;
+    }
+    #addTaskForm button, #updateTaskForm button{
+        height: 40px;
+        font-size: 1rem;
+    }
+    textarea{
+        font-size: 1rem;
+    }
+    .btnAdd{
+        font-size: 1.5rem;
+        height: 40px;
+        width: 40px;
+        top: 10px;
+        left: 7px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .task h3{
+        font-size: 1.5rem;
+        margin:10px auto;
+    }
+    .task p{
+        font-size: 1rem;
+        text-align: center;
+    }
+    .eliminar{
+        top: 10px;
+        right: 10px;
+    }
+    .accion{
+        right: 5px;
+        gap: 5px;
+        bottom: 0;
+    }
+    .btn-complete, .btn-editar, .btn-pdf{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .logo{
+        font-size: 1.7rem;
+    }
+    .title-welcome, .title-tasks{
+        font-size: 1.2rem;
+    }
+    .task p{
+        text-align: left;
+        font-size: .8rem;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .logo{
+        font-size: 1.5rem;
+    }
+    .botonesNav{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 385px) {
+    .logo{
+        font-size: 1.2rem;
+    }
+    .botonesNav{
+        width: 80%;
+    }
+    .btnNav{
+        font-size: .8rem;
+    }
 }
