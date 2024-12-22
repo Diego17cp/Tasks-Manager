@@ -1,10 +1,11 @@
-function showAddForm() {
+
+const showAddForm = () => {
     const addForm = document.getElementById("addForm");
     addForm.classList.add("show"); // Muestra el formulario
     addForm.classList.remove("hidden");
 }
 
-function hideAddForm() {
+const hideAddForm = () => {
     const addForm = document.getElementById("addForm");
     addForm.classList.remove("show"); // Oculta el formulario
     addForm.classList.add("hidden");
@@ -21,7 +22,7 @@ tasks.forEach(task => {
     task.addEventListener('click', toggleTaskDetails);
 });
 
-async function addTask() {
+const addTask = async () => {
     const titulo = document.getElementById("titulo").value;
     const descripcion = document.getElementById("descripcion").value;
     const fecha_limite = document.getElementById("fecha").value;
@@ -42,7 +43,7 @@ async function addTask() {
         alert("Error al añadir la tarea: " + (data.message || "Sin mensaje de error."));
     }
 }
-function showEditForm(tareaid) {
+const showEditForm = (tareaid) => {
     const editForm = document.getElementById("editForm");
     editForm.classList.add("show");
     editForm.classList.remove("hidden");
@@ -57,12 +58,12 @@ function showEditForm(tareaid) {
     document.getElementById("editFecha").value = fechaLimite;
     document.getElementById("editForm").style.display = "block";
 }
-function hideEditForm() {
+const hideEditForm = () => {
     const editForm = document.getElementById("editForm");
     editForm.classList.remove("show");
     editForm.classList.add("hidden");
 }
-async function updateTask() {
+const updateTask = async () => {
     const tareaid = document.getElementById("tareaid").value;
     const titulo = document.getElementById("editTitulo").value;
     const descripcion = document.getElementById("editDescripcion").value;
@@ -94,7 +95,7 @@ document.addEventListener("input", (event) => {
         }
     }
 });
-async function markAsCompleted(tareaid) {
+const markAsCompleted = async (tareaid) => {
     const response = await fetch("../Controlador/actualizar_tarea.php", {
         method: "POST",
         headers: {
@@ -111,10 +112,10 @@ async function markAsCompleted(tareaid) {
         alert("Error al marcar la tarea como completada");
     }
 }
-function generatePDF(tareaid, id) {
+const generatePDF = (tareaid, id) => {
     window.location.href=`../Controlador/generar_pdf.php?tareaid=${tareaid}&id=${id}`;
 }
-function deleteTask(tareaid, button) {
+const deleteTask = (tareaid, button) => {
     const confirmacion = confirm("¿Estás seguro de que deseas eliminar la tarea?");
     if (confirmacion) {
         fetch(`../Controlador/eliminar_tarea.php`,{
@@ -139,7 +140,7 @@ function deleteTask(tareaid, button) {
         });
     }
 }
-function cerrarSesion() {
+const cerrarSesion = () => {
     sessionStorage.removeItem('usuarioid');
     sessionStorage.removeItem('username');
     window.location.href = '../Modelo/cerrar_sesion.php';
