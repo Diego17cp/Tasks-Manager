@@ -45,7 +45,7 @@
     <div class="container">
         <?php if (isset($_SESSION['usuarioid'])): ?>
         <div class="forms">
-            <h1>Bienvenido, <?php echo $_SESSION['username']; ?></h1>
+            <h1 class="title-welcome">Bienvenido, <?php echo $_SESSION['username']; ?></h1>
             <button onclick="showAddForm()" class="btnAdd">+</button>
             <div id="addForm" class="hidden">
                 <div class="title">
@@ -84,7 +84,7 @@
             </div> 
         </div>
         <div class="info">
-            <h2>Tareas</h2>
+            <h2 class="title-tasks">Tareas</h2>
             <div id="taskContainer">
                 <?php foreach ($tareas as $tarea): ?>
                     <div id="task-<?php echo $tarea['tareaid']; ?>" class="task <?php echo $tarea['estado'] === 'Completada' ? 'completed' : ''; ?>">
@@ -118,7 +118,7 @@
         </div>
         <?php else: ?>
             <div class="container-bienvenida">
-                <h1 class="title bienvenida">Bienvenido a Castareas</h1>
+                <h1 class="title-bienvenida">Bienvenido a Castareas</h1>
                 <p class="subtitle">Un proyecto para organizar tus tareas, todo desde la misma página. <br>
                     Crea, Edita y puedes controlar cuando ya estén completadas. <br><br>
                     Por favor, inicia sesión para acceder a todas las funcionalidades.</p>
