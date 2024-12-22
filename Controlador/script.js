@@ -10,21 +10,16 @@ function hideAddForm() {
     addForm.classList.add("hidden");
 }
 
-const taskContainer = document.getElementById("taskContainer");
-taskContainer.addEventListener("click", (e) => {
-    const tarea = e.target.closest(".task");
-    if (tarea) {
-        const contenidoExpandido = tarea.querySelector(".contenidoExpandido");
-        document.querySelectorAll(".task.expanded").forEach(task => {
-            task.classList.remove("expanded");
-        });
-
-        // Si la tarea no estaba expandida, expándela
-        if (!tarea.classList.contains("expanded")) {
-            tarea.classList.add("expanded");
-        }
+const toggleTaskDetails = (e) => {
+    const task = e.target.closest(".task");
+    if(task){
+        task.classList.toggle("expanded");
     }
-})
+}
+const tasks=document.querySelectorAll('.task');
+tasks.forEach(task => {
+    task.addEventListener('click', toggleTaskDetails);
+});
 
 async function addTask() {
     const titulo = document.getElementById("titulo").value;
