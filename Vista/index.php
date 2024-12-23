@@ -46,13 +46,13 @@
         <?php if (isset($_SESSION['usuarioid'])): ?>
         <div class="forms">
             <h1 class="title-welcome">Bienvenido, <?php echo $_SESSION['username']; ?></h1>
-            <button onclick="showAddForm()" class="btnAdd">+</button>
+            <button id="btnAdd" class="btnAdd">+</button>
             <div id="addForm" class="hidden">
                 <div class="title">
                     <h3>Nueva Tarea</h3>
                 </div>
                 <div class="btnCerrar">
-                    <button type="button" onclick="hideAddForm()">X</button>
+                    <button type="button" id="btnHideAddForm">X</button>
                 </div>
                 <form action="" id="addTaskForm">
                     <label for="titulo">Titulo</label>
@@ -69,7 +69,7 @@
                     <h3>Editar Tarea</h3>
                 </div>
                 <div class="btnCerrar">
-                    <button type="button" onclick="hideEditForm()">X</button>
+                    <button type="button" id="btnHideEditForm">X</button>
                 </div>
                 <form action="" id="updateTaskForm">
                     <input type="hidden" name="tareaid" id="tareaid">

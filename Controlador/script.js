@@ -1,14 +1,22 @@
+// Get HTML elements
+const addForm = document.getElementById("addForm");
+const tituloElement = document.getElementById("titulo");
+const descripcionElement = document.getElementById("descripcion")
+const fecha_limiteElement = document.getElementById("fecha")
+const btnAddTask= document.getElementById("btnAdd");
+const btnHideAddForm = document.getElementById("btnHideAddForm");
+const tasks=document.querySelectorAll('.task');
 
-const showAddForm = () => {
-    const addForm = document.getElementById("addForm");
-    addForm.classList.add("show"); // Muestra el formulario
-    addForm.classList.remove("hidden");
-}
-
-const hideAddForm = () => {
-    const addForm = document.getElementById("addForm");
-    addForm.classList.remove("show"); // Oculta el formulario
-    addForm.classList.add("hidden");
+const toggleVisibilityAddForm = () => {
+    let isVisible=false
+    if(isVisible){
+        addForm.classList.toggle("show");
+        addForm.classList.toggle("hidden");
+    }
+    else{
+        addForm.classList.toggle("hidden");
+        addForm.classList.toggle("show");
+    }
 }
 
 const toggleTaskDetails = (e) => {
@@ -17,15 +25,18 @@ const toggleTaskDetails = (e) => {
         task.classList.toggle("expanded");
     }
 }
-const tasks=document.querySelectorAll('.task');
+btnAddTask.addEventListener("click", toggleVisibilityAddForm);
+btnHideAddForm.addEventListener("click", toggleVisibilityAddForm);
+
+
 tasks.forEach(task => {
     task.addEventListener('click', toggleTaskDetails);
 });
 
 const addTask = async () => {
-    const titulo = document.getElementById("titulo").value;
-    const descripcion = document.getElementById("descripcion").value;
-    const fecha_limite = document.getElementById("fecha").value;
+    const titulo = tituloElement.value;
+    const descripcion = descripcionElement.value;
+    const fecha_limite = fecha_limiteElement.value;
 
     const response = await fetch("../Controlador/agregar_tarea.php", {
         method: "POST",
