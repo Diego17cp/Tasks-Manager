@@ -45,8 +45,8 @@
     <div class="container">
         <?php if (isset($_SESSION['usuarioid'])): ?>
         <div class="forms">
-            <h1>Bienvenido, <?php echo $_SESSION['username']; ?></h1>
-            <button onclick="showAddForm()" class="btnAdd">+</button>
+            <h1 class="title-welcome">Bienvenido, <?php echo $_SESSION['username']; ?></h1>
+            <button id="btnAdd" class="btnAdd">+</button>
             <div id="addForm" class="hidden">
                 <div class="title">
                     <h3>Nueva Tarea</h3>
