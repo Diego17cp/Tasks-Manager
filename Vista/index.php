@@ -61,7 +61,7 @@
                     <textarea name="descripcion" id="descripcion" required></textarea>
                     <label for="fecha">Fecha Limite</label>
                     <input type="date" name="fecha_limite" id="fecha" required>
-                    <button type="button" onclick="addTask()">Añadir</button>
+                    <button type="button" id="addTaskBtn">Añadir</button>
                 </form>
             </div>
             <div id="editForm" class="hidden">
@@ -69,7 +69,7 @@
                     <h3>Editar Tarea</h3>
                 </div>
                 <div class="btnCerrar">
-                    <button type="button" id="btnHideEditForm">X</button>
+                    <button type="button" onclick="hideEditForm()">X</button>
                 </div>
                 <form action="" id="updateTaskForm">
                     <input type="hidden" name="tareaid" id="tareaid">
@@ -79,7 +79,7 @@
                     <textarea name="descripcion" id="editDescripcion" required></textarea>
                     <label for="editFecha">Fecha Limite</label>
                     <input type="date" name="fecha_limite" id="editFecha" required">
-                    <button type="button" onclick="updateTask()">Actualizar</button>
+                    <button type="button" id="updateTaskBtn">Actualizar</button>
                 </form>
             </div> 
         </div>
